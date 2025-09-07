@@ -2,8 +2,8 @@ package main
 
 import (
 	"log"
-	"system-monitor/monitor"
-	"system-monitor/ui"
+	"system-monitor/internal/monitor"
+	"system-monitor/internal/ui"
 )
 
 func main() {
@@ -12,7 +12,8 @@ func main() {
 	// 初始化监控器
 	sysMonitor := monitor.NewSystemMonitor()
 	if err := sysMonitor.Initialize(); err != nil {
-		log.Fatalf("Failed to initialize system monitor: %v", err)
+		log.Printf("Warning: Failed to initialize system monitor: %v", err)
+		// 继续运行，使用模拟数据
 	}
 	defer sysMonitor.Close()
 

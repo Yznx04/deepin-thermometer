@@ -92,16 +92,15 @@ func (sm *SystemMonitor) updateData() {
 }
 
 func (sm *SystemMonitor) getSystemUsage() (cpu float64, memory float64) {
-	// 这里使用简化的系统使用率计算
-	// 实际应用中可以读取 /proc/stat 和 /proc/meminfo
-	cpu = 25.0 + (50.0 * float64(time.Now().Unix()%100) / 100.0)    // 修正：添加float64转换
-	memory = 45.0 + (30.0 * float64(time.Now().Unix()%100) / 100.0) // 修正：添加float64转换
+	// 简单的系统使用率模拟
+	// 在实际应用中，您可能想要读取 /proc/stat 和 /proc/meminfo
+	cpu = 25.0 + (50.0 * float64(time.Now().Unix()%100) / 100.0)
+	memory = 45.0 + (30.0 * float64(time.Now().Unix()%100) / 100.0)
 	return
 }
 
 func (sm *SystemMonitor) estimatePowerUsage(cpuUsage, memUsage float64) float64 {
 	// 简化的功耗估算公式
-	// 实际功耗计算需要更复杂的硬件特定算法
 	basePower := 15.0 // 基础功耗
 	cpuPower := cpuUsage * 0.3
 	memPower := memUsage * 0.1
