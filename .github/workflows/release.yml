@@ -7,12 +7,11 @@ on:
 
 jobs:
   build:
-    name: Build Release
-    runs-on: ubuntu-latest
+    name: Build Release for Deepin 23
+    runs-on: ubuntu-20.04
     strategy:
       matrix:
-        go-version: [ 1.25 ]
-        os: [ ubuntu-latest, macos-latest, windows-latest ]
+        go-version: [1.25]
 
     steps:
       - name: Checkout code
@@ -23,37 +22,47 @@ jobs:
         with:
           go-version: ${{ matrix.go-version }}
 
+      - name: Install dependencies
+        run: |
+          sudo apt update
+          sudo apt install -y \
+            libgl1-mesa-dev \
+            xorg-dev \
+            libgtk-3-dev \
+            build-essential
+
       - name: Get dependencies
         run: |
-          go get -v -t -d ./...
+          go mod tidy
 
-      - name: Build
+      - name: Build for Deepin 23
         run: |
           mkdir -p build
-          GOOS=linux GOARCH=amd64 go build -o build/system-monitor-linux-amd64 ./cmd/system-monitor/
-          GOOS=linux GOARCH=arm64 go build -o build/system-monitor-linux-arm64 ./cmd/system-monitor/
-          GOOS=darwin GOARCH=amd64 go build -o build/system-monitor-darwin-amd64 ./cmd/system-monitor/
-          GOOS=darwin GOARCH=arm64 go build -o build/system-monitor-darwin-arm64 ./cmd/system-monitor/
-          GOOS=windows GOARCH=amd64 go build -o build/system-monitor-windows-amd64.exe ./cmd/system-monitor/
+          env CGO_ENABLED=1 GOOS=linux GOARCH=amd64 go build -o build/system-monitor ./cmd/system-monitor/
 
-      - name: Package
+      - name: Package as tar.gz
         run: |
           mkdir -p release
-          tar -czf release/system-monitor-linux-amd64.tar.gz -C build system-monitor-linux-amd64
-          tar -czf release/system-monitor-linux-arm64.tar.gz -C build system-monitor-linux-arm64
-          tar -czf release/system-monitor-darwin-amd64.tar.gz -C build system-monitor-darwin-amd64
-          tar -czf release/system-monitor-darwin-arm64.tar.gz -C build system-monitor-darwin-arm64
-          zip -j release/system-monitor-windows-amd64.zip build/system-monitor-windows-amd64.exe
+          tar -czf release/system-monitor-deepin23.tar.gz -C build system-monitor
 
       - name: Create Release
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
         with:
+          name: System Monitor ${{ github.ref_name }} for Deepin 23
+          body: |
+            System Monitor for Deepin 23 Community Edition
+            
+            ## Installation
+            1. Download system-monitor-deepin23.tar.gz
+            2. Extract: `tar -xzf system-monitor-deepin23.tar.gz`
+            3. Run: `./system-monitor`
+            
+            ## Usage
+            - Left-click and drag to move the window
+            - Right-click to close the application
+            - Double-click to close the application
           files: |
-            release/system-monitor-linux-amd64.tar.gz
-            release/system-monitor-linux-arm64.tar.gz
-            release/system-monitor-darwin-amd64.tar.gz
-            release/system-monitor-darwin-arm64.tar.gz
-            release/system-monitor-windows-amd64.zip
+            release/system-monitor-deepin23.tar.gz
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

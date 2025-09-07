@@ -20,20 +20,12 @@
 ## 📋 系统要求
 
 ### Linux系统
-- **支持的发行版**: Ubuntu 18.04+, Debian 10+, CentOS 7+, Fedora 30+, Deepin 20+
+- **支持的发行版**: Deepin 20+
 - **必要依赖**: 
   - `libgl1-mesa-dev`
   - `xorg-dev` 
   - `libgtk-3-dev`
   - `build-essential`
-
-### macOS系统
-- **最低版本**: macOS 10.12+
-- **推荐**: 最新版本以获得最佳性能
-
-### Windows系统
-- **最低版本**: Windows 7+
-- **推荐**: Windows 10/11
 
 ## 🚀 安装方式
 
@@ -59,12 +51,6 @@ cd deepin-thermometer
 # Linux (Ubuntu/Debian/Deepin)
 sudo apt update
 sudo apt install libgl1-mesa-dev xorg-dev libgtk-3-dev build-essential
-
-# Linux (CentOS/RHEL/Fedora)  
-sudo yum install mesa-libGL-devel libX11-devel gtk3-devel gcc
-
-# Linux (Arch Linux)
-sudo pacman -S mesa libx11 gtk3 gcc
 ```
 
 #### 构建项目
@@ -155,15 +141,6 @@ make release VERSION=v1.0.0
 ```bash
 # 构建当前平台
 go build -o deepin-thermometer ./cmd/deepin-thermometer/
-
-# 构建Linux版本
-GOOS=linux GOARCH=amd64 go build -o deepin-thermometer-linux ./cmd/deepin-thermometer/
-
-# 构建Windows版本
-GOOS=windows GOARCH=amd64 go build -o deepin-thermometer.exe ./cmd/deepin-thermometer/
-
-# 构建macOS版本
-GOOS=darwin GOARCH=amd64 go build -o deepin-thermometer-macos ./cmd/deepin-thermometer/
 ```
 
 ### 脚本说明
@@ -331,9 +308,9 @@ SOFTWARE.
 
 ## 👤 作者
 
-**Your Name**
+**Yznx04**
 - GitHub: [@Yznx04](https://github.com/Yznx04)
-- Email: your.email@example.com
+- Email: 2687927133@qq.com
 
 ## 🙏 致谢
 
