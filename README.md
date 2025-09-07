@@ -1,5 +1,5 @@
 
-# System Monitor
+# Deepin Thermometer
 
 [![Release](https://github.com/yourusername/system-monitor/actions/workflows/release.yml/badge.svg)](https://github.com/yourusername/system-monitor/actions/workflows/release.yml)
 [![Go Report Card](https://goreportcard.com/badge/github.com/yourusername/system-monitor)](https://goreportcard.com/report/github.com/yourusername/system-monitor)
@@ -51,7 +51,7 @@
 #### 克隆仓库
 ```bash
 git clone https://github.com/yourusername/system-monitor.git
-cd system-monitor
+cd deepin-thermometer
 ```
 
 #### 安装系统依赖
@@ -73,7 +73,7 @@ sudo pacman -S mesa libx11 gtk3 gcc
 go mod tidy
 
 # 构建
-go build -o system-monitor ./cmd/system-monitor/
+go build -o deepin-thermometer ./cmd/deepin-thermometer/
 
 # 或使用Makefile
 make build
@@ -84,7 +84,7 @@ make build
 ### 基本运行
 ```bash
 # 直接运行
-./system-monitor
+./deepin-thermometer
 
 # 或者使用Makefile
 make run
@@ -154,16 +154,16 @@ make release VERSION=v1.0.0
 #### 手动构建
 ```bash
 # 构建当前平台
-go build -o system-monitor ./cmd/system-monitor/
+go build -o deepin-thermometer ./cmd/deepin-thermometer/
 
 # 构建Linux版本
-GOOS=linux GOARCH=amd64 go build -o system-monitor-linux ./cmd/system-monitor/
+GOOS=linux GOARCH=amd64 go build -o deepin-thermometer-linux ./cmd/deepin-thermometer/
 
 # 构建Windows版本
-GOOS=windows GOARCH=amd64 go build -o system-monitor.exe ./cmd/system-monitor/
+GOOS=windows GOARCH=amd64 go build -o deepin-thermometer.exe ./cmd/deepin-thermometer/
 
 # 构建macOS版本
-GOOS=darwin GOARCH=amd64 go build -o system-monitor-macos ./cmd/system-monitor/
+GOOS=darwin GOARCH=amd64 go build -o deepin-thermometer-macos ./cmd/deepin-thermometer/
 ```
 
 ### 脚本说明
@@ -246,14 +246,14 @@ echo $XDG_CURRENT_DESKTOP
 
 # 尝试不同的窗口管理器设置
 export GDK_BACKEND=x11
-./system-monitor
+./deepin-thermometer
 ```
 
 ### 日志调试
 ```bash
 # 启用详细日志
 export DEBUG=1
-./system-monitor
+./deepin-thermometer
 
 # 查看系统日志
 journalctl -f

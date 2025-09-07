@@ -1,4 +1,4 @@
-module system-monitor
+module deepin-thermometer
 
 go 1.25
 

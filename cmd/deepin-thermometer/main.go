@@ -1,9 +1,9 @@
 package main
 
 import (
+	"deepin-thermometer/internal/monitor"
+	"deepin-thermometer/internal/ui"
 	"log"
-	"system-monitor/internal/monitor"
-	"system-monitor/internal/ui"
 )
 
 func main() {

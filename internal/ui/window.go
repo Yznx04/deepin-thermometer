@@ -1,8 +1,8 @@
 package ui
 
 import (
+	"deepin-thermometer/internal/monitor"
 	"image/color"
-	"system-monitor/internal/monitor"
 	"time"
 
 	"github.com/hajimehoshi/ebiten/v2"

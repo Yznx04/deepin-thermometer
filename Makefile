@@ -1,7 +1,7 @@
 .PHONY: build clean test install-deps release
 
 # 变量
-PROJECT_NAME := system-monitor
+PROJECT_NAME := deepin-thermometer
 VERSION ?= dev
 BUILD_DIR := build
 
@@ -11,7 +11,7 @@ all: build
 # 构建
 build:
 	@echo "Building $(PROJECT_NAME)..."
-	go build -o $(BUILD_DIR)/$(PROJECT_NAME) ./cmd/system-monitor/
+	go build -o $(BUILD_DIR)/$(PROJECT_NAME) ./cmd/deepin-thermometer/
 
 # 清理
 clean:
@@ -36,7 +36,7 @@ release:
 
 # 运行
 run:
-	go run ./cmd/system-monitor/
+	go run ./cmd/deepin-thermometer/
 
 # 安装到系统
 install: build
