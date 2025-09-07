@@ -1,8 +1,8 @@
 
 # Deepin Thermometer
 
-[![Release](https://github.com/yourusername/system-monitor/actions/workflows/release.yml/badge.svg)](https://github.com/yourusername/system-monitor/actions/workflows/release.yml)
-[![Go Report Card](https://goreportcard.com/badge/github.com/yourusername/system-monitor)](https://goreportcard.com/report/github.com/yourusername/system-monitor)
+[![Release](https://github.com/Yznx04/deepin-thermometer/actions/workflows/release.yml/badge.svg)](https://github.com/Yznx04/deepin-thermometer/actions/workflows/release.yml)
+[![Go Report Card](https://goreportcard.com/badge/github.com/Ynzx04/deepin-thermometer)](https://goreportcard.com/report/github.com/Yznx04/deepin-thermometer)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 一个轻量级的系统监控工具，支持Linux、macOS和Windows平台，提供实时的CPU温度、GPU温度、使用率和功耗监控。
@@ -39,9 +39,9 @@
 
 ### 📦 二进制安装（推荐）
 
-从[Releases](https://github.com/yourusername/system-monitor/releases)页面下载适合您系统的预编译二进制文件：
+从[Releases](https://github.com/Yznx04/deepin-thermometer/releases)页面下载适合您系统的预编译二进制文件：
 
-1. 访问 [GitHub Releases](https://github.com/yourusername/system-monitor/releases)
+1. 访问 [GitHub Releases](https://github.com/Yznx04/deepin-thermometer/releases)
 2. 下载对应平台的压缩包
 3. 解压文件
 4. 直接运行可执行文件
@@ -50,7 +50,7 @@
 
 #### 克隆仓库
 ```bash
-git clone https://github.com/yourusername/system-monitor.git
+git clone https://github.com/Yznx04/deepin-thermometer.git
 cd deepin-thermometer
 ```
 
@@ -332,7 +332,7 @@ SOFTWARE.
 ## 👤 作者
 
 **Your Name**
-- GitHub: [@yourusername](https://github.com/yourusername)
+- GitHub: [@Yznx04](https://github.com/Yznx04)
 - Email: your.email@example.com
 
 ## 🙏 致谢
